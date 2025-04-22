@@ -27,6 +27,20 @@
 
 <!-- TOC -->
 - [1. 📖 Introducción](#1--introducción)
+- [2. 🎯 Objetivos](#2--objetivos)
+- [3. 🧰 Herramientas Necesarias](#3--herramientas-necesarias)
+  - [3.1. 🔭🛠️ Equipos](#31-️-equipos)
+  - [3.2. 🖥️💾 Software](#32-️-software)
+- [4. 🔧➡️🚀 Procedimiento](#4-️-procedimiento)
+  - [4.1. 🔍📚 Búsqueda bibliográfica](#41--búsqueda-bibliográfica)
+  - [4.2. Sensor HOKUYO](#42-sensor-hokuyo)
+  - [4.3. Sensor RPLIDAR](#43-sensor-rplidar)
+  - [4.4. Sensor de ultrasonido](#44-sensor-de-ultrasonido)
+  - [4.5. Sensores Lego](#45-sensores-lego)
+  - [4.6. ROS Kuboki](#46-ros-kuboki)
+  - [4.7. ROS Lego EV3](#47-ros-lego-ev3)
+- [5. 📚🔗 Recursos](#5--recursos)
+
 
 </details>
 
@@ -96,3 +110,37 @@ En la medida que deseamos mejor desempeño de los robots, esos errores se hacen 
 - Explique la diferencia entre un error sistemático y un error aleatorio.
 
 - De acuerdo con la teoría estadística: ¿qué es el valor medio? ¿Qué magnitudes se utilizan para medir la dispersión de los datos?
+
+### 4.2. Sensor HOKUYO
+
+### 4.3. Sensor RPLIDAR
+
+### 4.4. Sensor de ultrasonido
+
+### 4.5. Sensores Lego
+
+### 4.6. ROS
+
+### 4.7. ROS Kuboki
+
+- Realice una investigación acerca del robot TurtleBot2 y su relación con la base Kobuki.
+- ¿Para que sirve los sensores cliff en el Kobuki?¿Como leer un evento de dicho sensor?
+- Construya un archivo en Python que permita hacer la lectura de la información del sensor cliff y active
+un sonido al ocurrir un evento con ese sensor. Active también el modo de teleoperación por teclado al
+mismo tiempo para controlar el movimiento del Kobuki.
+
+### 4.8. ROS Lego EV3
+
+
+
+## 5. 📚🔗 Recursos
+
+<details>
+  <summary>🐢🤖 kobuki</summary>
+
+</details>
+
+<details>
+  <summary>🧱🤖 Lego EV3 </summary>
+
+</details>
