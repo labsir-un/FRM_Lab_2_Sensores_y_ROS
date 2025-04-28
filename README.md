@@ -131,6 +131,11 @@ En este contexto, el uso de ROS (Robot Operating System) se ha convertido en un 
 
 ### 4.2. 👀🫲🏼👂🏼🤖🧠 Sensores
 
+<!--
+>[!IMPORTANT]
+>Puedes saltar estas secciones y con un bonus usar los sensores desde ROS
+-->
+
 #### 4.2.1. 🔦👀🌐🔭 Sensor HOKUYO
 
 >[!CAUTION]
@@ -160,9 +165,9 @@ mkdir Lidar && cd Lidar
 git init
 git remote add origin https://github.com/labsir-un/FRM_Lab_2_Sensores_y_ROS.git
 git config core.sparsecheckout true
-git sparse-checkout set Recursos/Sensores/Lidar
+git sparse-checkout set Recursos/Sensores/Hokuyo
 git pull origin main
-mv Recursos/Sensores/Lidar/* ./
+mv Recursos/Sensores/Hokuyo/* ./
 rm -r Recursos/
 ```
 
@@ -192,7 +197,7 @@ rm -r Recursos/
 
 1. Organize su espacio de trabajo de manera que pueda colocar el sensor en 3 diferentes posturas en el área a mapear como aparece a continuación.
 2.  Establezca un punto de su área de trabajo y definalo como origen de coordenadas y defina direcciones **X** e **Y**.
-3. Realice una toma de datos similar a la realizada para el sensor Hokuyo. Utilice los algoritmos disponibles en la carpeta[RPLidar](./Recursos/Sensores/RPLidar).
+3. Realice una toma de datos similar a la realizada para el sensor Hokuyo. Utilice los algoritmos disponibles en la carpeta [RPLidar](./Recursos/Sensores/RPLidar).
 >[!TIP]
 >No olvide cambiar el número de puerto `COM` en los scripts
 4. Realice el mismo post-procesamiento de datos que el realizado con el sensor Hokuyo (Pasos 22-26).
