@@ -9,7 +9,7 @@ from rplidar import RPLidar #pip install rplidar-roboticia o en https://github.c
 import matplotlib.pyplot as plt
 from math import radians
 
-lidar = RPLidar('com4') #revisar puerto de comunicación
+lidar = RPLidar('com5') #revisar puerto de comunicación
 
 info = lidar.get_info()
 print(info)
@@ -41,7 +41,7 @@ for i, scan in enumerate(lidar.iter_scans()):
         break
 
 # Exportar los datos a un archivo CSV
-with open('lidar_data3.csv', 'w', newline='') as csvfile:
+with open('lidar_data1.csv', 'w', newline='') as csvfile:
     writer = csv.writer(csvfile)
     writer.writerow(['angle', 'distance'])
     writer.writerows(zip(angles, distances))

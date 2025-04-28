@@ -13,7 +13,7 @@ for i=1:10
 disp('Escaneo número:')
 iplot
 [rangescan]=LidarScan(lidar);
-LidarSet2(i,:)=rangescan;
+LidarSet1(i,:)=rangescan;
 pause(6)
 end
 disp('Escaneo finalizado')

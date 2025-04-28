@@ -10,7 +10,7 @@ from rplidar import RPLidar #pip install rplidar-roboticia o en https://github.c
 import matplotlib.pyplot as plt
 from math import radians
 
-lidar = RPLidar('com4') #revisar puerto de comunicación
+lidar = RPLidar('com5') #revisar puerto de comunicación
 
 info = lidar.get_info()
 print(info)

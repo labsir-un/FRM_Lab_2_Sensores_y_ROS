@@ -33,15 +33,15 @@
   - [3.2. 🖥️💾 Software](#32-️-software)
 - [4. 🔧➡️🚀 Procedimiento](#4-️-procedimiento)
   - [4.1. 🔍📚 Búsqueda bibliográfica](#41--búsqueda-bibliográfica)
-  - [4.2. Sensores](#42-sensores)
-    - [4.2.1. Sensor HOKUYO](#421-sensor-hokuyo)
-    - [4.2.2. Sensor RPLIDAR](#422-sensor-rplidar)
-    - [4.2.3. Sensor de ultrasonido](#423-sensor-de-ultrasonido)
-    - [4.2.4. Sensores Lego](#424-sensores-lego)
-  - [4.3. ROS](#43-ros)
-    - [4.3.1. Uso de archivos](#431-uso-de-archivos)
-    - [4.3.2. ROS Kuboki](#432-ros-kuboki)
-    - [4.3.3. ROS Lego EV3](#433-ros-lego-ev3)
+  - [4.2. 👀🫲🏼👂🏼🤖🧠 Sensores](#42--sensores)
+    - [4.2.1. 🔦👀🌐🔭 Sensor HOKUYO](#421--sensor-hokuyo)
+    - [4.2.2. 🔦👀🌍📡 Sensor RPLIDAR](#422--sensor-rplidar)
+    - [4.2.3. 🔊📡📏 Sensor de ultrasonido](#423--sensor-de-ultrasonido)
+    - [4.2.4. 📡🧭🧱 Sensores Lego](#424--sensores-lego)
+  - [4.3. 🌐🤖 ROS](#43--ros)
+    - [4.3.1. 🗂️🌐🤖 Uso de archivos](#431-️-uso-de-archivos)
+    - [4.3.2. 🌐🐢🤖 ROS Kuboki](#432--ros-kuboki)
+    - [4.3.3. 🌐🧱🤖 ROS Lego EV3](#433--ros-lego-ev3)
 - [5. 📚🔗 Recursos](#5--recursos)
 
 
@@ -129,13 +129,75 @@ En este contexto, el uso de ROS (Robot Operating System) se ha convertido en un 
 
 11. ¿Qué opciones de conexión permiten integrar sensores no nativos al sistema LEGO EV3?
 
-### 4.2. Sensores
+### 4.2. 👀🫲🏼👂🏼🤖🧠 Sensores
 
-#### 4.2.1. Sensor HOKUYO
+#### 4.2.1. 🔦👀🌐🔭 Sensor HOKUYO
 
-#### 4.2.2. Sensor RPLIDAR
+>[!CAUTION]
+>Inicialmente no conecte el sensor al computador.
 
-#### 4.2.3. Sensor de ultrasonido
+1. Instale, ejecute el software [URG Benri data viewing tool](./Recursos/Sensores/Hokuyo/UrgBenriPlus_2.2.0(rev.274)_installer.exe).
+2. Realice la configuración del sensor y compuebe el funcionamiento adecuado
+del Lidar.
+3. Abra MATLAB.
+4. Desde MATLAB verificar con la instrucción `instrfind` que no hay puertos abiertos, la respuesta en la ventana de comandos debe ser: 
+
+```matlab
+  ans =
+
+      []
+```
+
+>[!TIP]
+>Si aparecen instrumentos asociados es preferible cerrar el software, desconectar el sensor, volver a abrir MATLAB y reconectar el sensor.
+
+5. En la carpeta de trabajo con MATLAB copiar la carpeta [Lidar](./Recursos/Sensores/Lidar/).
+
+```sh
+# Con gitbash o linux puede usar estos comandos para copiar puede cambiar la primera linea y usar su directorio de trabajo
+cd ~/Matlab 
+mkdir Lidar && cd Lidar
+git init
+git remote add origin https://github.com/labsir-un/FRM_Lab_2_Sensores_y_ROS.git
+git config core.sparsecheckout true
+git sparse-checkout set Recursos/Sensores/Lidar
+git pull origin main
+mv Recursos/Sensores/Lidar/* ./
+rm -r Recursos/
+```
+
+6. Abrir el Administrador de dispositivos (Windows) y conecte el sensor a un puerto USB, observe los cambios en la carpeta `Puertos COM y LPT`. Registre en número de puerto asignado al sensor.
+7. Abra desde MATLAB el archivo [SetupLidar.m](./Recursos/Sensores/Lidar/SetupLidar.m) y modifique la línea 6 con el número de puerto `COM` correspondiente.
+8. Organize su espacio de trabajo de manera que pueda colocar el sensor en 3 diferentes posturas en el área a mapear como aparece a continuación.
+9.  Establezca un punto de su área de trabajo y definalo como origen de coordenadas y defina direcciones **X** e **Y**.
+10. Corra el programa `SetupLidar.m`.
+11. Abra el programa [RunLidar2.m](./Recursos/Sensores/Lidar/RunLidar2.m).
+12. Modifique el algoritmo para que haga 3 escaneos con separación de tiempo de 1 a 3 segundos entre ellos.
+13. Coloque el sensor en la pose 1 mida y guarde los datos de esa pose $[x, y, θ]_{1}$.
+14. Corra el programa [RunLidar2.m](./Recursos/Sensores/Lidar/RunLidar2.m).
+15. Modifique el algoritmo en las líneas 11 y 16 para que genere una variable `LidarSet2`.
+16. Coloque el sensor en la pose 2 mida y guarde los datos de esa pose $[x, y, θ]_{2}$.
+17. Corra el programa [RunLidar2.m](./Recursos/Sensores/Lidar/RunLidar2.m).
+18. Modifique el algoritmo en las líneas 11 y 16 para que genere una variable `LidarSet3`.
+19. Coloque el sensor en la pose 3 mida y guarde los datos de esa pose $[x, y, θ]_{3}$.
+20. Corra el programa [RunLidar2.m](./Recursos/Sensores/Lidar/RunLidar2.m).
+21. Desconecte el lidar usando el programa [DisconnectLidar.m](./Recursos/Sensores/Hokuyo/DisconnectLidar.m)
+22. Presente la foto de su área de trabajo modificada con las dimensiones totales y la pose aproximada del sensor en cada conjunto de medidas.
+23. Para cada pose informe los datos $[x, y, θ]_{i}$ y presente los datos capturados con alguno de los métodos plot(scan) presentados en la página de ayuda de [MATLAB: lidarScan Create object for storing 2-D lidar scan](https://la.mathworks.com/help/nav/ref/lidarscan.html).
+24. Para cada pose presente los datos en forma de mapa de ocupación. Ayuda de [MATLAB occupancyMap Create 2-D occupancy map](https://la.mathworks.com/help/nav/ref/occupancymap.html) ejemplo [Insert Laser Scans into Occupancy Map](https://la.mathworks.com/help/nav/ref/occupancymap.insertray.html).
+25. Usando los datos capturados en las 3 poses construya un mapa de ocumación de su área de trabajo, use como referencia la ayuda de [MATLAB: buildMap Build occupancy map from lidar scans](https://la.mathworks.com/help/nav/ug/build-occupancy-map-from-lidar-scans-and-poses.html).
+26. Realice un análisis de los errores y fuentes de error evidenciados en la construcción del mapa en el punto anterior.
+
+#### 4.2.2. 🔦👀🌍📡 Sensor RPLIDAR
+
+1. Organize su espacio de trabajo de manera que pueda colocar el sensor en 3 diferentes posturas en el área a mapear como aparece a continuación.
+2.  Establezca un punto de su área de trabajo y definalo como origen de coordenadas y defina direcciones **X** e **Y**.
+3. Realice una toma de datos similar a la realizada para el sensor Hokuyo. Utilice los algoritmos disponibles en la carpeta[RPLidar](./Recursos/Sensores/RPLidar).
+>[!TIP]
+>No olvide cambiar el número de puerto `COM` en los scripts
+4. Realice el mismo post-procesamiento de datos que el realizado con el sensor Hokuyo (Pasos 22-26).
+
+#### 4.2.3. 🔊📡📏 Sensor de ultrasonido
 
 1. En los sitios referenciados en la sección [5. 📚🔗 Recursos](#5--recursos) identifique la forma de conectar el ARDUINO y el sensor [HC-SR04](./Recursos/Sensores/Ultra_Sonido/HCSR04.pdf) y la forma de conexión a su computador. Haga las conexiones correspondientes. Tenga en cuenta los números de pines del ARDUINO a los cuales conectó los pines de trigger y de echo del HCSR04.
 2. Abra el IDE de Arduino y cargue el archivo [usound3.ino](./Recursos/Sensores/Ultra_Sonido/usound3.ino). Modifique las líneas correspondientes para que coincidan con los pines del Arduino que se están utilizando en su configuración actual.
@@ -161,7 +223,7 @@ const int pintrigger = 12;
 16. Incluya gráficas que representen el comportamiento de la desviación estándar, el error absoluto y el error relativo en relación con la distancia media.
 17. Lleve a cabo los análisis necesarios y elabore las conclusiones correspondientes.
 
-#### 4.2.4. Sensores Lego
+#### 4.2.4. 📡🧭🧱 Sensores Lego
 
 Llevar a cabo una estimación preliminar de la incertidumbre de medida en los sensores y actuadores utilizados en los kits LEGO EV3.
 
@@ -179,9 +241,12 @@ Llevar a cabo una estimación preliminar de la incertidumbre de medida en los se
 
 5. Realice un análisis comparativo entre los valores de desplazamiento angular medidos por el sistema LEGO EV3 y los obtenidos mediante el método de medición externo. Utilice este último como patrón de referencia para calcular los errores de desplazamiento. Determine el error absoluto, el error relativo y, si es pertinente, el error porcentual para evaluar la precisión del sistema.
 
-### 4.3. ROS
+### 4.3. 🌐🤖 ROS
 
-#### 4.3.1. Uso de archivos
+#### 4.3.1. 🗂️🌐🤖 Uso de archivos
+
+>[!IMPORTANT]
+>Si quiere saber más de como funciona ROS, su estructura y como se estructura un paquete vea [📚🌐🤖 Introducción a ROS](https://github.com/labsir-un/FRM_Lab_0_Intro_software/blob/main/Archivos/ROS/Recursos/Introduccion.md).
 
 1. Cree un Workspace para los archivos. En el siguiente ejemplo se crea uno con el nombre `catkin_ws`.
 
@@ -201,21 +266,94 @@ git remote add origin https://github.com/labsir-un/FRM_Lab_2_Sensores_y_ROS.git
 git config core.sparsecheckout true
 git sparse-checkout set Recursos/ROS/laboratorio_2
 git pull origin main
+mv Recursos/ROS/laboratorio_2/* ./
+rm -r Recursos/
 ```
 
-- Describa paso a paso que hacen los programas realizados en Python, indique las funciones de ROS usadas.
+3. Complilar el Workspace y cargar configuraciones.
 
--  Use turtle_teleop_key y el programa pysubpose.py para conocer las dimensiones del plano donde el Turtlesim puede moverse.
+```sh
+cd ~/catkin_ws
+#Compila todo el workspace creado
+catkin_make
+#Carga todas las configuraciones necesarias en el entorno actual
+source devel/setup.bash
+```
 
-- Describa como usar algún servicio en Python. Luego pruebe el siguiente código ejemplo que se encarga de dibujar un cuadrado con el turtlesim: (se recomienda usar las instrucciones rosservice list y rosservice info)
+4. Dar permisos de ejecución a los scripts de python.
 
-#### 4.3.2. ROS Kuboki
+```sh
+chmod +x ~/catkin_ws/src/laboratorio_2/scripts/*.py
+```
 
-- Desarrolle un programa que permita realizar la lectura del sensor de acantilado (cliff) del robot Kobuki y reproduzca un sonido al detectarse un evento asociado a dicho sensor. De forma simultánea, habilite el modo de teleoperación mediante teclado para controlar el movimiento del robot.
+5. Abra otra terminal e inicie ROS.
 
-#### 4.3.3. ROS Lego EV3
+```sh
+roscore
+```
 
-- Desarrolle un programa que permita realizar la lectura de los siguientes sensores: táctil, giroscopio y, adicionalmente, un sensor infrarrojo, ultrasónico o de color, con el objetivo de detectar eventos asociados a cualquiera de ellos. Simultáneamente, implemente un modo de teleoperación, ya sea mediante teclado o una interfaz gráfica (GUI), para controlar el movimiento del robot.
+6. Abra una tercera terminal e inicie el nodo de `turtlesim`.
+
+```sh
+rosrun turtlesim turtlesim_node
+```
+
+7. En la primera terminal corra el ejecutable de [hello.cpp](./Recursos/ROS/laboratorio_2/src/hello.cpp). Con esto se correra el primer archivo ejecutable de C++.
+
+```sh
+rosrun laboratorio_2 hello
+```
+
+8. Corra el ejecutable de [subpose.cpp](./Recursos/ROS/laboratorio_2/src/subpose.cpp). Este programa se suscribe a la pose de la tortuga y la muestra en la terminal.
+
+```sh
+rosrun laboratorio_2 subpose
+```
+
+9. Corra el ejecutable de [pubvel.cpp](./Recursos/ROS/laboratorio_2/src/pubvel.cpp). Este programa publica en las velocidades de la tortuga con valores alatorios lo cual hace que se mueva en la escena.
+
+```sh
+rosrun laboratorio_2 pubvel
+```
+
+10.  Corra el ejecutable de [pysubpose.py](./Recursos/ROS/laboratorio_2/scripts/pysubpose.py). Este programa se suscribe a la pose de la tortuga y la muestra en la terminal.
+
+```sh
+rosrun laboratorio_2 pysubpose.py
+```
+
+11. Corra el ejecutable de [pypubvel.py](./Recursos/ROS/laboratorio_2/scripts/pypubvel.py). Este programa publica en las velocidades de la tortuga con valores alatorios lo cual hace que se mueva en la escena.
+
+```sh
+rosrun laboratorio_2 pypubvel.py
+```
+
+12. Detenga el nodo de `turtlesim` y lance varios nodos usando el archivo [p.launch](./Recursos/ROS/laboratorio_2/launch/p.launch).
+
+```sh
+roslaunch laboratorio_2 p.launch
+```
+
+13. Describa paso a paso que hacen los programas realizados en Python, indique las funciones de ROS usadas.
+
+14. Use `turtle_teleop_key` y el programa `pysubpose.py` para conocer las dimensiones del plano donde el Turtlesim puede moverse.
+
+15. Describa como usar algún servicio en Python.
+
+16. Pruebe el código ejemplo [pycuadrado.py](./Recursos/ROS/laboratorio_2/scripts/pycuadrado.py) que se encarga de dibujar un cuadrado con el turtlesim. Y revise como se usan servicios en este script.
+
+>[!Note]
+>Se recomienda usar las instrucciones `rosservice list` y `rosservice info` para ver los servicios que hay disponibles y la información de estos.
+
+17.  Inicie un nodo de `turtlesim`, utilice el servicio `spawn` para generar una segunda tortuga y desarrolle un programa en Python que permita a ambas tortugas dibujar un triángulo y un cuadrado. Emplee un archivo `launch` para automatizar la ejecución de la tarea.
+
+#### 4.3.2. 🌐🐢🤖 ROS Kuboki
+
+1. Desarrolle un programa que permita realizar la lectura del sensor de acantilado (cliff) del robot Kobuki y reproduzca un sonido al detectarse un evento asociado a dicho sensor. De forma simultánea, habilite el modo de teleoperación mediante teclado para controlar el movimiento del robot.
+
+#### 4.3.3. 🌐🧱🤖 ROS Lego EV3
+
+1. Desarrolle un programa que permita realizar la lectura de los siguientes sensores: táctil, giroscopio y, adicionalmente, un sensor infrarrojo, ultrasónico o de color, con el objetivo de detectar eventos asociados a cualquiera de ellos. Simultáneamente, implemente un modo de teleoperación, ya sea mediante teclado o una interfaz gráfica (GUI), para controlar el movimiento del robot.
 
 ## 5. 📚🔗 Recursos
 

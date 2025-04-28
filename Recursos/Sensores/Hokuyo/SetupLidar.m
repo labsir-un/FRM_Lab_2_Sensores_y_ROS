@@ -3,7 +3,7 @@
 % SCIP2.0 Protocol.
 % % Checks Version Information and switches on Laser.
 % Author- Shikhar Shrestha, IIT Bhubaneswar
-lidar=serial('COM3','baudrate',115200);
+lidar=serial('COM5','baudrate',115200);
 set(lidar,'Timeout',0.5);
 set(lidar,'InputBufferSize',40000);
 set(lidar,'Terminator','CR');
