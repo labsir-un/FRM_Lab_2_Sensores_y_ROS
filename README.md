@@ -33,13 +33,15 @@
   - [3.2. 🖥️💾 Software](#32-️-software)
 - [4. 🔧➡️🚀 Procedimiento](#4-️-procedimiento)
   - [4.1. 🔍📚 Búsqueda bibliográfica](#41--búsqueda-bibliográfica)
-  - [4.2. Sensor HOKUYO](#42-sensor-hokuyo)
-  - [4.3. Sensor RPLIDAR](#43-sensor-rplidar)
-  - [4.4. Sensor de ultrasonido](#44-sensor-de-ultrasonido)
-  - [4.5. Sensores Lego](#45-sensores-lego)
-  - [4.6. ROS](#46-ros)
-  - [4.7. ROS Kuboki](#47-ros-kuboki)
-  - [4.8. ROS Lego EV3](#48-ros-lego-ev3)
+  - [4.2. Sensores](#42-sensores)
+    - [4.2.1. Sensor HOKUYO](#421-sensor-hokuyo)
+    - [4.2.2. Sensor RPLIDAR](#422-sensor-rplidar)
+    - [4.2.3. Sensor de ultrasonido](#423-sensor-de-ultrasonido)
+    - [4.2.4. Sensores Lego](#424-sensores-lego)
+  - [4.3. ROS](#43-ros)
+    - [4.3.1. Uso de archivos](#431-uso-de-archivos)
+    - [4.3.2. ROS Kuboki](#432-ros-kuboki)
+    - [4.3.3. ROS Lego EV3](#433-ros-lego-ev3)
 - [5. 📚🔗 Recursos](#5--recursos)
 
 
@@ -97,9 +99,9 @@ En este contexto, el uso de ROS (Robot Operating System) se ha convertido en un 
 
 ### 4.1. 🔍📚 Búsqueda bibliográfica
 
-- ¿Qué es el Vocabulario Internacional de Metrología (VIM)?
+1. ¿Qué es el Vocabulario Internacional de Metrología (VIM)?
 
-- Según el VIM, defina los siguientes conceptos:
+2. Según el VIM, defina los siguientes conceptos:
 
     - Exactitud de medida
 
@@ -109,29 +111,31 @@ En este contexto, el uso de ROS (Robot Operating System) se ha convertido en un 
 
     - Incertidumbre de medida
 
-- Explique la diferencia entre un error sistemático y un error aleatorio.
+3. Explique la diferencia entre un error sistemático y un error aleatorio.
 
-- De acuerdo con la teoría estadística: ¿qué es el valor medio? ¿Qué magnitudes se utilizan para medir la dispersión de los datos?
+4. De acuerdo con la teoría estadística: ¿qué es el valor medio? ¿Qué magnitudes se utilizan para medir la dispersión de los datos?
 
-- Busque una definición de que es ROS y sus principales ventajas
+5. Busque una definición de que es ROS y sus principales ventajas
 
-- Investigue sobre qué comandos se pueden usar con rosnode, rostopic, rosservice,rosmsg, rospack.
+6. Investigue sobre qué comandos se pueden usar con rosnode, rostopic, rosservice,rosmsg, rospack.
 
-- Investigue acerca del robot TurtleBot2 y su relación con la base Kobuki.
+7. Investigue acerca del robot TurtleBot2 y su relación con la base Kobuki.
 
-- ¿Para que sirve los sensores cliff en el Kobuki?
+8. ¿Para que sirve los sensores cliff en el Kobuki?
 
-- ¿Como leer un evento de dicho sensor?
+9. ¿Como leer un evento de dicho sensor?
 
-- ¿Qué protocolo de comunicación usa el Lego Ev3 con sus sensores y actuadores?
+10. ¿Qué protocolo de comunicación usa el Lego Ev3 con sus sensores y actuadores?
 
-- ¿Qué opciones de conexión permiten integrar sensores no nativos al sistema LEGO EV3?
+11. ¿Qué opciones de conexión permiten integrar sensores no nativos al sistema LEGO EV3?
 
-### 4.2. Sensor HOKUYO
+### 4.2. Sensores
 
-### 4.3. Sensor RPLIDAR
+#### 4.2.1. Sensor HOKUYO
 
-### 4.4. Sensor de ultrasonido
+#### 4.2.2. Sensor RPLIDAR
+
+#### 4.2.3. Sensor de ultrasonido
 
 1. En los sitios referenciados en la sección [5. 📚🔗 Recursos](#5--recursos) identifique la forma de conectar el ARDUINO y el sensor [HC-SR04](./Recursos/Sensores/Ultra_Sonido/HCSR04.pdf) y la forma de conexión a su computador. Haga las conexiones correspondientes. Tenga en cuenta los números de pines del ARDUINO a los cuales conectó los pines de trigger y de echo del HCSR04.
 2. Abra el IDE de Arduino y cargue el archivo [usound3.ino](./Recursos/Sensores/Ultra_Sonido/usound3.ino). Modifique las líneas correspondientes para que coincidan con los pines del Arduino que se están utilizando en su configuración actual.
@@ -157,7 +161,7 @@ const int pintrigger = 12;
 16. Incluya gráficas que representen el comportamiento de la desviación estándar, el error absoluto y el error relativo en relación con la distancia media.
 17. Lleve a cabo los análisis necesarios y elabore las conclusiones correspondientes.
 
-### 4.5. Sensores Lego
+#### 4.2.4. Sensores Lego
 
 Llevar a cabo una estimación preliminar de la incertidumbre de medida en los sensores y actuadores utilizados en los kits LEGO EV3.
 
@@ -175,20 +179,41 @@ Llevar a cabo una estimación preliminar de la incertidumbre de medida en los se
 
 5. Realice un análisis comparativo entre los valores de desplazamiento angular medidos por el sistema LEGO EV3 y los obtenidos mediante el método de medición externo. Utilice este último como patrón de referencia para calcular los errores de desplazamiento. Determine el error absoluto, el error relativo y, si es pertinente, el error porcentual para evaluar la precisión del sistema.
 
-### 4.6. ROS
+### 4.3. ROS
+
+#### 4.3.1. Uso de archivos
+
+1. Cree un Workspace para los archivos. En el siguiente ejemplo se crea uno con el nombre `catkin_ws`.
+
+```sh 
+mkdir -p ~/catkin_ws/src
+cd ~/catkin_ws/
+catkin_make
+```
  
-- Describa paso a paso que hacen los programas realizados en Python, indique las funciones de ROS
-usadas.
+2. Clone el paquete `laboratorio_2` de este respositorio para esto use los siguientes comandos:
+
+```sh
+cd ~/catkin_ws/src
+mkdir laboratorio_2 && cd laboratorio_2
+git init
+git remote add origin https://github.com/labsir-un/FRM_Lab_2_Sensores_y_ROS.git
+git config core.sparsecheckout true
+git sparse-checkout set Recursos/ROS/laboratorio_2
+git pull origin main
+```
+
+- Describa paso a paso que hacen los programas realizados en Python, indique las funciones de ROS usadas.
 
 -  Use turtle_teleop_key y el programa pysubpose.py para conocer las dimensiones del plano donde el Turtlesim puede moverse.
 
 - Describa como usar algún servicio en Python. Luego pruebe el siguiente código ejemplo que se encarga de dibujar un cuadrado con el turtlesim: (se recomienda usar las instrucciones rosservice list y rosservice info)
 
-### 4.7. ROS Kuboki
+#### 4.3.2. ROS Kuboki
 
 - Desarrolle un programa que permita realizar la lectura del sensor de acantilado (cliff) del robot Kobuki y reproduzca un sonido al detectarse un evento asociado a dicho sensor. De forma simultánea, habilite el modo de teleoperación mediante teclado para controlar el movimiento del robot.
 
-### 4.8. ROS Lego EV3
+#### 4.3.3. ROS Lego EV3
 
 - Desarrolle un programa que permita realizar la lectura de los siguientes sensores: táctil, giroscopio y, adicionalmente, un sensor infrarrojo, ultrasónico o de color, con el objetivo de detectar eventos asociados a cualquiera de ellos. Simultáneamente, implemente un modo de teleoperación, ya sea mediante teclado o una interfaz gráfica (GUI), para controlar el movimiento del robot.
 
