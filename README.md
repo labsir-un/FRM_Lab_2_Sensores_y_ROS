@@ -86,9 +86,8 @@ En este contexto, el uso de ROS (Robot Operating System) se ha convertido en un 
 ### 3.2. 🖥️💾 Software
 
 - Ubuntu 20.04.
-- Buscador web.
 - Windows.
-- [Software Hokuyo. URG Benri data viewing tool](https://drive.google.com/drive/folders/1ATOYSlWvBPTANnwIrI1PNbUlumYzaM3c?usp=drive_link).
+- [Software Hokuyo. URG Benri data viewing tool](./Recursos/Sensores/RPLidar/UrgBenriPlus_2.2.0(rev.274)_installer.exe).
 - Matlab.
 - Arduino IDE.
 - Visual Studio Code.
@@ -134,7 +133,47 @@ En este contexto, el uso de ROS (Robot Operating System) se ha convertido en un 
 
 ### 4.4. Sensor de ultrasonido
 
+1. En los sitios referenciados en la sección [5. 📚🔗 Recursos](#5--recursos) identifique la forma de conectar el ARDUINO y el sensor [HC-SR04](./Recursos/Sensores/Ultra_Sonido/HCSR04.pdf) y la forma de conexión a su computador. Haga las conexiones correspondientes. Tenga en cuenta los números de pines del ARDUINO a los cuales conectó los pines de trigger y de echo del HCSR04.
+2. Abra el IDE de Arduino y cargue el archivo [usound3.ino](./Recursos/Sensores/Ultra_Sonido/usound3.ino). Modifique las líneas correspondientes para que coincidan con los pines del Arduino que se están utilizando en su configuración actual.
+
+```cpp
+const int pinecho = 11;
+const int pintrigger = 12;
+```
+
+3. Compila el código y súbelo al Arduino mediante el entorno de desarrollo (IDE) de Arduino.
+4. Desde el IDE de Arduino, abra el monitor serial para comprobar que los datos se están leyendo y registrando adecuadamente. Una vez verificado, cierra el monitor.
+5. Instale el montaje experimental de acuerdo con el esquema mostrado.
+6. En MATLAB abra el archivo [ultrasound3.m](./Recursos/Sensores/Ultra_Sonido/ultrasound3.m).
+7. En la ventana de comandos, utiliza la instrucción `serialportlist` para identificar el puerto asignado al Arduino.
+8. Edita la instrucción `port = serialport()` en el archivo, configurando el puerto `COM` que corresponda al asignado para el Arduino. El programa leerá los datos recibidos por el puerto serie y los almacenará en la variable `dist`.
+9. Ubica un objeto (por ejemplo, una caja de cartón o una tabla pequeña) que actúe como referencia para realizar la medición de distancia.
+10. Coloca el objeto a una distancia de 1 metro del sensor, verifica la distancia utilizando una cinta métrica y registra el valor obtenido.
+11. Ejecuta el programa [ultrasound3.m](./Recursos/Sensores/Ultra_Sonido/ultrasound3.m) para realizar la medición de distancia y guarda los resultados obtenidos en el proceso en un archivo debidamente identificado.
+12. Repita los dos pasos anteriores en tres posiciones adicionales del objeto, asegurándose de que las distancias al sensor estén entre 1 y 2,5 metros.
+13. Para cada conjunto de datos, calcule la distancia media, la desviación estándar, el error absoluto y el error relativo en relación con la medición de distancia realizada con el flexómetro.
+14. Presente la gráfica de distancia en función del índice de muestra.
+15. Para cada distancia medida, incluya un histograma que muestre la distribución de los datos.
+16. Incluya gráficas que representen el comportamiento de la desviación estándar, el error absoluto y el error relativo en relación con la distancia media.
+17. Lleve a cabo los análisis necesarios y elabore las conclusiones correspondientes.
+
 ### 4.5. Sensores Lego
+
+Llevar a cabo una estimación preliminar de la incertidumbre de medida en los sensores y actuadores utilizados en los kits LEGO EV3.
+
+1. Programe el robot LEGO EV3 para realizar las siguientes acciones: arranque, desplazamiento en línea recta de 100 cm y detención. Configure la velocidad de desplazamiento al 30% de la velocidad máxima del robot. Registre los datos de posición al inicio y al final del trayecto utilizando los siguientes elementos:
+
+   1. Encoder sensor de rueda.
+   2. Sensor de Ultrasonido del EV3.
+   3. Cinta métrica.
+
+2. Repita el procedimiento anterior, pero ahora con la velocidad al 100 % de la máxima.
+
+3. Realice un anális comparativo de las medidas y calcule los errores de desplazamiento tomando como patrón la cinta métrica.
+
+4. Diseñe e implemente un algoritmo que permita girar una rueda del robot LEGO EV3 en intervalos de 30° y 45°. Configure un montaje experimental que permita medir externamente los ángulos girados utilizando un método alternativo, como un transportador, un apuntador láser con cinta métrica, u otro sistema de referencia. Realice múltiples repeticiones de la medición para evaluar la precisión del sistema.
+
+5. Realice un análisis comparativo entre los valores de desplazamiento angular medidos por el sistema LEGO EV3 y los obtenidos mediante el método de medición externo. Utilice este último como patrón de referencia para calcular los errores de desplazamiento. Determine el error absoluto, el error relativo y, si es pertinente, el error porcentual para evaluar la precisión del sistema.
 
 ### 4.6. ROS
  
@@ -147,31 +186,52 @@ usadas.
 
 ### 4.7. ROS Kuboki
 
-- Construya un archivo en Python que permita hacer la lectura de la información del sensor cliff y active
-un sonido al ocurrir un evento con ese sensor. Active también el modo de teleoperación por teclado al
-mismo tiempo para controlar el movimiento del Kobuki.
+- Desarrolle un programa que permita realizar la lectura del sensor de acantilado (cliff) del robot Kobuki y reproduzca un sonido al detectarse un evento asociado a dicho sensor. De forma simultánea, habilite el modo de teleoperación mediante teclado para controlar el movimiento del robot.
 
 ### 4.8. ROS Lego EV3
 
-
+- Desarrolle un programa que permita realizar la lectura de los siguientes sensores: táctil, giroscopio y, adicionalmente, un sensor infrarrojo, ultrasónico o de color, con el objetivo de detectar eventos asociados a cualquiera de ellos. Simultáneamente, implemente un modo de teleoperación, ya sea mediante teclado o una interfaz gráfica (GUI), para controlar el movimiento del robot.
 
 ## 5. 📚🔗 Recursos
 
 <details>
-  <summary>🚗📡🌐 Sensores</summary>
+  <summary>🚗📡 Sensores</summary>
 
+- [Lidar Technologies 101](https://www.youtube.com/watch?v=3EehCU3csJQ)
 - [Ultrasonic Sensor HC-SR04 and Arduino – Complete Guide](https://howtomechatronics.com/tutorials/arduino/ultrasonic-sensor-hc-sr04/)
 - [Tutorial de Arduino y sensor ultrasónico HC-SR04](https://naylampmechatronics.com/blog/10_tutorial-de-arduino-y-sensor-ultrasonico-hc-sr04.html)
 - [Medir distancia con Arduino y sensor de ultrasonidos HC-SR04](https://www.luisllamas.es/medir-distancia-con-arduino-y-sensor-de-ultrasonidos-hc-sr04/)
+- [Tracker](https://opensourcephysics.github.io/tracker-website/)
+
+</details>
+
+
+<details>
+  <summary>🌐🤖 ROS</summary>
+
+- [ROSwiki kobuki](http://wiki.ros.org/kobuki/Tutorials)
+- [ROSwiki tutoriales](https://wiki.ros.org/ROS/Tutorials)
+- [Aprender ROS. #1.1 ¿Qué necesitas para empezar?](https://www.youtube.com/watch?v=gcLbsIMBZR4)
+- [[ROS Spanish Tutorials] ROS Básico en 5 días #Chapter 0 - part 1](https://www.youtube.com/watch?v=cAnMkvXy2hw)
 
 </details>
 
 <details>
   <summary>🐢🤖 kobuki</summary>
 
+- [ROSwiki kobuki](http://wiki.ros.org/kobuki/Tutorials)
+- [Kobuki TurtleBot + ROS + Jetson TX2](https://www.youtube.com/watch?v=gRBA-EC6COU)
 </details>
 
 <details>
   <summary>🧱🤖 Lego EV3 </summary>
-
+ 
+ - [ROSwiki EV3](https://wiki.ros.org/Robots/EV3)
+ - [ROS Robot With Lego EV3 and Docker](https://www.instructables.com/ROS-Robot-With-Lego-EV3-and-Docker/)
+ - [Lego NXT](https://robots.ros.org/lego-nxt/)
+ - [Ros And Wiimote](https://www.ev3dev.org/projects/2017/02/05/ROS-and-wiimote/)
+ - [Connecting the EV3 and the Arduino](https://www.dexterindustries.com/howto/connecting-ev3-arduino/)
+ - [Conectando ROS y EV3 mediante Arduin](https://github.com/FCruzV10/ROSEV3)
+ - [Conexión de Lego mindstorms EV3 con ROS por medio de comunicación MQTT y el sistema ev3dev](https://github.com/JSDaleman/ev3_mqtt_ros)
+- [Mobile Robotic developement Platform interfacing ROS and EV3](https://www.youtube.com/watch?v=iRQqEKYDRI4)
 </details>
