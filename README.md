@@ -70,8 +70,7 @@ En este contexto, el uso de ROS (Robot Operating System) se ha convertido en un 
 - Realizar el manejo de las plataformas robóticas disponibles a través del uso de ROS (Robot Operating System).
 
 ## 3. 🧰 Herramientas Necesarias
->[!NOTE]
->Se debe usar un pc
+
 ### 3.1. 🔭🛠️ Equipos
 
 - Robot Lego EV3.
