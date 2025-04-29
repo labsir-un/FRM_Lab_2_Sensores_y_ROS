@@ -39,7 +39,7 @@
     - [4.2.3. 🔊📡📏 Sensor de ultrasonido](#423--sensor-de-ultrasonido)
     - [4.2.4. 📡🧭🧱 Sensores Lego](#424--sensores-lego)
   - [4.3. 🌐🤖 ROS](#43--ros)
-    - [4.3.1. 🗂️🌐🤖 Uso de archivos](#431-️-uso-de-archivos)
+    - [4.3.1. 🗂️🌐🤖 Uso de ROS](#431-️-uso-de-ros)
     - [4.3.2. 🌐🐢🤖 ROS Kuboki](#432--ros-kuboki)
     - [4.3.3. 🌐🧱🤖 ROS Lego EV3](#433--ros-lego-ev3)
 - [5. 📚🔗 Recursos](#5--recursos)
@@ -117,7 +117,7 @@ En este contexto, el uso de ROS (Robot Operating System) se ha convertido en un 
 
 5. Busque una definición de que es ROS y sus principales ventajas
 
-6. Investigue sobre qué comandos se pueden usar con rosnode, rostopic, rosservice,rosmsg, rospack.
+6. Investigue sobre qué comandos se pueden usar con rosnode, rostopic, rosparam, rosservice, rosmsg y rospack.
 
 7. Investigue acerca del robot TurtleBot2 y su relación con la base Kobuki.
 
@@ -263,7 +263,7 @@ Llevar a cabo una estimación preliminar de la incertidumbre de medida en los se
 
 ### 4.3. 🌐🤖 ROS
 
-#### 4.3.1. 🗂️🌐🤖 Uso de archivos
+#### 4.3.1. 🗂️🌐🤖 Uso de ROS
 
 >[!IMPORTANT]
 >Si quiere saber más de como funciona ROS, su estructura y como se estructura un paquete vea [📚🌐🤖 Introducción a ROS](https://github.com/labsir-un/FRM_Lab_0_Intro_software/blob/main/Archivos/ROS/Recursos/Introduccion.md).
