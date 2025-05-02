@@ -383,7 +383,7 @@ roslaunch laboratorio_2 p.launch
 - [Tutorial de Arduino y sensor ultrasónico HC-SR04](https://naylampmechatronics.com/blog/10_tutorial-de-arduino-y-sensor-ultrasonico-hc-sr04.html)
 - [Medir distancia con Arduino y sensor de ultrasonidos HC-SR04](https://www.luisllamas.es/medir-distancia-con-arduino-y-sensor-de-ultrasonidos-hc-sr04/)
 - [Tracker](https://opensourcephysics.github.io/tracker-website/)
-
+- [Comparaison protocoles communication i2c spi uart](https://www.parlezvoustech.com/en/comparaison-protocoles-communication-i2c-spi-uart/)
 </details>
 
 
@@ -402,6 +402,7 @@ roslaunch laboratorio_2 p.launch
 
 - [ROSwiki kobuki](http://wiki.ros.org/kobuki/Tutorials)
 - [Kobuki TurtleBot + ROS + Jetson TX2](https://www.youtube.com/watch?v=gRBA-EC6COU)
+- [Guia de uso del robot Kobuki mediante ROS](https://github.com/labsir-un/FRM_Lab_0_Intro_software/blob/main/Archivos/ROS/Recursos/Kuboki.md)
 </details>
 
 <details>
