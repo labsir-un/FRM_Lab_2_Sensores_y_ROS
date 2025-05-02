@@ -160,12 +160,11 @@ En este contexto, el uso de ROS (Robot Operating System) se ha convertido en un 
 ```sh
 # Con gitbash o linux puede usar estos comandos para copiar puede cambiar la primera linea y usar su directorio de trabajo
 cd ~/Matlab 
-mkdir Lidar && cd Lidar
-git init
-git remote add origin https://github.com/labsir-un/FRM_Lab_2_Sensores_y_ROS.git
-git config core.sparsecheckout true
+git clone --filter=blob:none --no-checkout https://github.com/labsir-un/FRM_Lab_2_Sensores_y_ROS.git Lidar
+cd Lidar
+git sparse-checkout init
 git sparse-checkout set Recursos/Sensores/Hokuyo
-git pull origin main
+git checkout
 mv Recursos/Sensores/Hokuyo/* ./
 rm -r Recursos/
 ```
@@ -280,12 +279,11 @@ catkin_make
 
 ```sh
 cd ~/catkin_ws/src
-mkdir laboratorio_2 && cd laboratorio_2
-git init
-git remote add origin https://github.com/labsir-un/FRM_Lab_2_Sensores_y_ROS.git
-git config core.sparsecheckout true
+git clone --filter=blob:none --no-checkout https://github.com/labsir-un/FRM_Lab_2_Sensores_y_ROS.git laboratorio_2
+cd laboratorio_2
+git sparse-checkout init
 git sparse-checkout set Recursos/ROS/laboratorio_2
-git pull origin main
+git checkout
 mv Recursos/ROS/laboratorio_2/* ./
 rm -r Recursos/
 ```
