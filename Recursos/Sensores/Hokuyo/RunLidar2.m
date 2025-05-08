@@ -1,17 +1,17 @@
 % RUNLIDAR2
-% programa para ejecutar escaneos periódicos con el lidar HOKUYO URG-04LX,
+% programa para ejecutar escaneos periï¿½dicos con el lidar HOKUYO URG-04LX,
 % crea un archivo LIDARSET2 que contiene una fila de datos por cada
-% escaneo. Se ejecutan 10 escaneos con separación de 6 segundos.
-% Ricardo Ramírez Heredia. Universidad Nacional de Colombia. Usa el programa
+% escaneo. Se ejecutan 10 escaneos con separaciï¿½n de 6 segundos.
+% Ricardo Ramï¿½rez Heredia. Universidad Nacional de Colombia. Usa el programa
 % LidarScan  creado por Shikhar Shrestha, IIT Bhubaneswar.
 
-%El lidar debe estar conectado y realizada la conexión con SetupLidar.
+%El lidar debe estar conectado y realizada la conexiï¿½n con SetupLidar.
 
 disp('Inicio escaneo')
 LidarSet1=zeros(50,682);
 for i=1:10
-disp('Escaneo número:')
-iplot
+disp('Escaneo nï¿½mero:')
+%iplot
 [rangescan]=LidarScan(lidar);
 LidarSet1(i,:)=rangescan;
 pause(6)
