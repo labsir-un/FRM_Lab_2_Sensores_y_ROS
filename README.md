@@ -155,7 +155,7 @@ En este contexto, el uso de ROS (Robot Operating System) se ha convertido en un 
 >[!TIP]
 >Si aparecen instrumentos asociados es preferible cerrar el software, desconectar el sensor, volver a abrir MATLAB y reconectar el sensor.
 
-5. En la carpeta de trabajo con MATLAB copiar la carpeta [Lidar](./Recursos/Sensores/Lidar/).
+5. En la carpeta de trabajo con MATLAB copiar la carpeta [Lidar](./Recursos/Sensores/Hokuyo/).
 
 ```sh
 # Con gitbash o linux puede usar estos comandos para copiar puede cambiar la primera linea y usar su directorio de trabajo
