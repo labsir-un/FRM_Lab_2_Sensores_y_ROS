@@ -151,6 +151,12 @@ En este contexto, el uso de ROS (Robot Operating System) se ha convertido en un 
 
       []
 ```
+o la instruccion `serialportlist`.
+```matlab
+  ans =
+
+      1x0 empty
+```
 
 >[!TIP]
 >Si aparecen instrumentos asociados es preferible cerrar el software, desconectar el sensor, volver a abrir MATLAB y reconectar el sensor.
