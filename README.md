@@ -265,7 +265,7 @@ Llevar a cabo una estimación preliminar de la incertidumbre de medida en los se
 #### 4.3.1. 🗂️🌐🤖 Uso de ROS
 
 >[!IMPORTANT]
->Si quiere saber más de como funciona ROS, su estructura y como se estructura un paquete vea [📚🌐🤖 Introducción a ROS](https://github.com/labsir-un/FRM_Lab_0_Intro_software/blob/main/Archivos/ROS/Recursos/Introduccion.md).
+>Si quiere saber más de como funciona ROS, su estructura y como se estructura un paquete vea [📚🌐🤖 Introducción a ROS](https://github.com/labsir-un/FRM_Lab_0_Intro_software/blob/main/Secciones/ROS/Recursos/Introduccion.md).
 
 1. Cree un Workspace para los archivos. En el siguiente ejemplo se crea uno con el nombre `catkin_ws`.
 
