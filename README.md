@@ -183,7 +183,7 @@ rm -r Recursos/
   <img src="https://imgur.com/jvpmgEM.png" alt="Montaje_sensor_RPLidar" width="600px">
 </div>
 
-9.  Establezca un punto de su área de trabajo y definalo como origen de coordenadas y defina direcciones **X** e **Y**.
+9.  Establezca un punto de su área de trabajo y definalo como origen de coordenadas y defina direcciones **X** e **Y**. Ubique el sensor lidar de manera tal, que el frente o liiena frontal no este alineada con las direcciones  **X** e **Y** reciente definidas.
 10. Corra el programa `SetupLidar.m`.
 11. Abra el programa [RunLidar2.m](./Recursos/Sensores/Hokuyo/RunLidar2.m).
 12. Modifique el algoritmo para que haga 3 escaneos con separación de tiempo de 1 a 3 segundos entre ellos.
