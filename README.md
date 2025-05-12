@@ -151,7 +151,7 @@ En este contexto, el uso de ROS (Robot Operating System) se ha convertido en un 
 
       []
 ```
-o la instruccion `serialportlist`.
+o la instrucción `serialportlist`.
 ```matlab
   ans =
 
