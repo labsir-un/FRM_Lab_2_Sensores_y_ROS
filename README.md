@@ -373,6 +373,8 @@ roslaunch laboratorio_2 p.launch
 
 1. Desarrolle un programa que permita realizar la lectura de los siguientes sensores: táctil, giroscopio y, adicionalmente, un sensor infrarrojo, ultrasónico o de color, con el objetivo de detectar eventos asociados a cualquiera de ellos. Simultáneamente, implemente un modo de teleoperación, ya sea mediante teclado o una interfaz gráfica (GUI), para controlar el movimiento del robot.
 
+2. Con las lecturas o eventos del robot genere una rutina como: parada con un umbral de seguridad, control de giro o generación de sonido. 
+
 ## 5. 📚🔗 Recursos
 
 <details>
