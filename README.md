@@ -151,6 +151,12 @@ En este contexto, el uso de ROS (Robot Operating System) se ha convertido en un 
 
       []
 ```
+o la instrucción `serialportlist`.
+```matlab
+  ans =
+
+      1x0 empty
+```
 
 >[!TIP]
 >Si aparecen instrumentos asociados es preferible cerrar el software, desconectar el sensor, volver a abrir MATLAB y reconectar el sensor.
@@ -177,7 +183,7 @@ rm -r Recursos/
   <img src="https://imgur.com/jvpmgEM.png" alt="Montaje_sensor_RPLidar" width="600px">
 </div>
 
-9.  Establezca un punto de su área de trabajo y definalo como origen de coordenadas y defina direcciones **X** e **Y**.
+9.  Establezca un punto de su área de trabajo y definalo como origen de coordenadas y defina direcciones **X** e **Y**. Ubique el sensor lidar de manera tal, que el frente o línea frontal no este alineada con las direcciones  **X** e **Y** reciente definidas.
 10. Corra el programa `SetupLidar.m`.
 11. Abra el programa [RunLidar2.m](./Recursos/Sensores/Hokuyo/RunLidar2.m).
 12. Modifique el algoritmo para que haga 3 escaneos con separación de tiempo de 1 a 3 segundos entre ellos.
@@ -191,7 +197,7 @@ rm -r Recursos/
     <img src="https://imgur.com/y0JthnJ.png" alt="Pose_2" width="60px">
 </picture>.
 
-17.  Corra el programa [RunLidar2.m](./Recursos/Sensores/Hokuyo/RunLidar2.m).
+17. Corra el programa [RunLidar2.m](./Recursos/Sensores/Hokuyo/RunLidar2.m).
 18. Modifique el algoritmo en las líneas 11 y 16 para que genere una variable `LidarSet3`.
 19. Coloque el sensor en la pose 3 mida y guarde los datos de esa pose <picture> <source srcset="https://imgur.com/QCEb8Ri.png" media="(prefers-color-scheme: dark)"> <source srcset="https://imgur.com/kVoWPrg.png" media="(prefers-color-scheme: light)">
     <img src="https://imgur.com/kVoWPrg.png" alt="Pose_3" width="60px">
