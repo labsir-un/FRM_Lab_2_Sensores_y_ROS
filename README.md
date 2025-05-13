@@ -207,7 +207,7 @@ rm -r Recursos/
 
 #### 4.2.2. 🔦👀🌍📡 Sensor RPLIDAR
 
-1. Organize su espacio de trabajo de manera que pueda colocar el sensor en 3 diferentes posturas en el área a mapear como aparece a continuación.
+1. Organize su espacio de trabajo de manera que pueda colocar el sensor en 3 diferentes posturas en el área a mapear como aparece en el ejemplo en la sección anterior.
 2.  Establezca un punto de su área de trabajo y definalo como origen de coordenadas y defina direcciones **X** e **Y**.
 3. Realice una toma de datos similar a la realizada para el sensor Hokuyo. Utilice los algoritmos disponibles en la carpeta [RPLidar](./Recursos/Sensores/RPLidar).
 >[!TIP]
@@ -257,7 +257,7 @@ Llevar a cabo una estimación preliminar de la incertidumbre de medida en los se
 
 2. Repita el procedimiento anterior, pero ahora con la velocidad al 100 % de la máxima.
 
-3. Realice un anális comparativo de las medidas y calcule los errores de desplazamiento tomando como patrón la cinta métrica.
+3. Realice un análisis comparativo de las medidas y calcule los errores de desplazamiento tomando como patrón la cinta métrica.
 
 4. Diseñe e implemente un algoritmo que permita girar una rueda del robot LEGO EV3 en intervalos de 30° y 45°. Configure un montaje experimental que permita medir externamente los ángulos girados utilizando un método alternativo, como un transportador, un apuntador láser con cinta métrica, u otro sistema de referencia. Realice múltiples repeticiones de la medición para evaluar la precisión del sistema.
 
