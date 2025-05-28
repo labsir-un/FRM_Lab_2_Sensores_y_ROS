@@ -413,7 +413,7 @@ roslaunch laboratorio_2 p.launch
 
 - [ROSwiki kobuki](http://wiki.ros.org/kobuki/Tutorials)
 - [Kobuki TurtleBot + ROS + Jetson TX2](https://www.youtube.com/watch?v=gRBA-EC6COU)
-- [Guia de uso del robot Kobuki mediante ROS](https://github.com/labsir-un/FRM_Lab_0_Intro_software/blob/main/Archivos/ROS/Recursos/Kuboki.md)
+- [Guia de uso del robot Kobuki mediante ROS](https://github.com/labsir-un/FRM_Lab_0_Intro_software/blob/main/Secciones/ROS/Recursos/Kuboki.md)
 </details>
 
 <details>
