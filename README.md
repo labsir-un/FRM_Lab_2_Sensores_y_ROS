@@ -187,29 +187,23 @@ rm -r Recursos/
 10. Corra el programa `SetupLidar.m`.
 11. Abra el programa [RunLidar2.m](./Recursos/Sensores/Hokuyo/RunLidar2.m).
 12. Modifique el algoritmo para que haga 3 escaneos con separación de tiempo de 1 a 3 segundos entre ellos.
-13. Coloque el sensor en la pose 1 mida y guarde los datos de esa pose  <picture> <source srcset="https://imgur.com/fHyzaJS.png" media="(prefers-color-scheme: dark)"> <source srcset="https://imgur.com/iL364wo.png" media="(prefers-color-scheme: light)">
-    <img src="https://imgur.com/iL364wo.png" alt="Pose_1" width="60px">
-</picture>.
+13. Coloque el sensor en la pose 1 mida y guarde los datos de esa pose $$[x, y, \theta]_{1}$$.
 
-14. Corra el programa [RunLidar2.m](./Recursos/Sensores/Hokuyo/RunLidar2.m).
-15.  Modifique el algoritmo en las líneas 11 y 16 para que genere una variable `LidarSet2`.
-16. Coloque el sensor en la pose 2 mida y guarde los datos de esa pose <picture> <source srcset="https://imgur.com/x7fDgUo.png" media="(prefers-color-scheme: dark)"> <source srcset="https://imgur.com/y0JthnJ.png" media="(prefers-color-scheme: light)">
-    <img src="https://imgur.com/y0JthnJ.png" alt="Pose_2" width="60px">
-</picture>.
+1.  Corra el programa [RunLidar2.m](./Recursos/Sensores/Hokuyo/RunLidar2.m).
+2.   Modifique el algoritmo en las líneas 11 y 16 para que genere una variable `LidarSet2`.
+3.  Coloque el sensor en la pose 2 mida y guarde los datos de esa pose $$[x, y, \theta]_{2}$$.
 
-17. Corra el programa [RunLidar2.m](./Recursos/Sensores/Hokuyo/RunLidar2.m).
-18. Modifique el algoritmo en las líneas 11 y 16 para que genere una variable `LidarSet3`.
-19. Coloque el sensor en la pose 3 mida y guarde los datos de esa pose <picture> <source srcset="https://imgur.com/QCEb8Ri.png" media="(prefers-color-scheme: dark)"> <source srcset="https://imgur.com/kVoWPrg.png" media="(prefers-color-scheme: light)">
-    <img src="https://imgur.com/kVoWPrg.png" alt="Pose_3" width="60px">
-</picture>.
+1.  Corra el programa [RunLidar2.m](./Recursos/Sensores/Hokuyo/RunLidar2.m).
+2.  Modifique el algoritmo en las líneas 11 y 16 para que genere una variable `LidarSet3`.
+3.  Coloque el sensor en la pose 3 mida y guarde los datos de esa pose $$[x, y, \theta]_{3}$$.
 
-20.  Corra el programa [RunLidar2.m](./Recursos/Sensores/Hokuyo/RunLidar2.m).
-21. Desconecte el lidar usando el programa [DisconnectLidar.m](./Recursos/Sensores/Hokuyo/DisconnectLidar.m)
-22. Presente la foto de su área de trabajo modificada con las dimensiones totales y la pose aproximada del sensor en cada conjunto de medidas.
-23. Para cada pose informe los datos $[x, y, θ]_{i}$ y presente los datos capturados con alguno de los métodos plot(scan) presentados en la página de ayuda de [MATLAB: lidarScan Create object for storing 2-D lidar scan](https://la.mathworks.com/help/nav/ref/lidarscan.html).
-24. Para cada pose presente los datos en forma de mapa de ocupación. Ayuda de [MATLAB occupancyMap Create 2-D occupancy map](https://la.mathworks.com/help/nav/ref/occupancymap.html) ejemplo [Insert Laser Scans into Occupancy Map](https://la.mathworks.com/help/nav/ref/occupancymap.insertray.html).
-25. Usando los datos capturados en las 3 poses construya un mapa de ocumación de su área de trabajo, use como referencia la ayuda de [MATLAB: buildMap Build occupancy map from lidar scans](https://la.mathworks.com/help/nav/ug/build-occupancy-map-from-lidar-scans-and-poses.html).
-26. Realice un análisis de los errores y fuentes de error evidenciados en la construcción del mapa en el punto anterior.
+4.   Corra el programa [RunLidar2.m](./Recursos/Sensores/Hokuyo/RunLidar2.m).
+5.  Desconecte el lidar usando el programa [DisconnectLidar.m](./Recursos/Sensores/Hokuyo/DisconnectLidar.m)
+6.  Presente la foto de su área de trabajo modificada con las dimensiones totales y la pose aproximada del sensor en cada conjunto de medidas.
+7.  Para cada pose informe los datos $$[x, y, θ]_{i}$$ y presente los datos capturados con alguno de los métodos plot(scan) presentados en la página de ayuda de [MATLAB: lidarScan Create object for storing 2-D lidar scan](https://la.mathworks.com/help/nav/ref/lidarscan.html).
+8.  Para cada pose presente los datos en forma de mapa de ocupación. Ayuda de [MATLAB occupancyMap Create 2-D occupancy map](https://la.mathworks.com/help/nav/ref/occupancymap.html) ejemplo [Insert Laser Scans into Occupancy Map](https://la.mathworks.com/help/nav/ref/occupancymap.insertray.html).
+9.  Usando los datos capturados en las 3 poses construya un mapa de ocumación de su área de trabajo, use como referencia la ayuda de [MATLAB: buildMap Build occupancy map from lidar scans](https://la.mathworks.com/help/nav/ug/build-occupancy-map-from-lidar-scans-and-poses.html).
+10. Realice un análisis de los errores y fuentes de error evidenciados en la construcción del mapa en el punto anterior.
 
 #### 4.2.2. 🔦👀🌍📡 Sensor RPLIDAR
 
